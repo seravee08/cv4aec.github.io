@@ -101,14 +101,29 @@
         <div class="row" style="margin-top:40px">		
 			<div class="col-lg-12 text-center">
 				<h4 class="section-heading text-uppercase">Dataset</h4>
-				<p>The dataset is available <a href="https://deepreality.allvision.io/">here</a> You will need a registered
+				<p>The dataset is available <a href="https://deepreality.allvision.io/">here</a>. You will need a registered
 				account to download the dataset. We have prepared X models. For each model, there is an AutoCAD file in dwg format,
 				a binary obj file and a JSON file with extracted layers. These layers include: walls, curved walls, doors, windows,
 				stairs, and columns. 
 				</p>	
 				<p>We provide API to extract layers from dwg and convert to obj or JSON file in this
 				<a href="https://github.com/cv4aec/cv4aec.github.io/tree/main/conversion_api">package</a>. Please find use examples
-				under main.ipynb file.
+				under main.ipynb file. The file formats for obj and JSON are detailed below.
+				</p>
+				<p>obj File Format<br>
+				The header contains following information:
+					1. number of layer (unsigned int)
+					2. number of structures for each layer (unsigned int array)
+				Followed by information for layer 1:
+					1. length of layer name (unsigned int)
+					2. layer name (bytes array)
+					3. information for layer 1/structure 1:
+						a. number of points for structure (unsigned int)
+						b. pt1.X, pt1.Y, pt2.X, pt2.Y, ... (float in meters)
+					4. information for layer 1/structure 2:
+					...
+				Followed by information for layer 2:
+				...
 				</p>
 				<h4 class="section-heading text-uppercase">Metrics</h4>
 				<p>STH here</p>
