@@ -111,7 +111,7 @@
 				under main.ipynb file. The file formats for obj and JSON are detailed below.
 				</p>
 				<DIV align="left">
-				<p>=============== obj File Format >===============<br>
+				<p>=============== obj File Format ===============<br>
 				The header contains following information:<br>
 					&emsp;1. number of layer (unsigned int)<br>
 					&emsp;2. number of structures for each layer (unsigned int array)<br>
@@ -137,7 +137,7 @@
 				[number of points for structure 2][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
 				...<br>
 				<br>
-				A sample obj file is given below (it is practically in binary):<br>
+				A sample obj file is given below (it should be in binary practically):<br>
 				2 32 15<br>
 				6 "A_WALL"<br>
 				2 320.12 442.55 320.12 445.55<br>
@@ -147,6 +147,17 @@
 				4 178.12 336.55 225.12 482.55 389.12 557.55 175.12 882.55<br>
 				2 389.12 557.55 175.12 882.55<br>
 				</p>
+				</DIV>
+				<DIV align="left">
+				<p>=============== JSON File Format ===============<br>
+				JSON file provides following information:<br>
+				1. number of layers<br>
+				2. number of structures in each layer<br>
+				3. layer details<br>
+					&emsp;- layer name<br>
+					&emsp;- number of points<br>
+					&emsp;- x y coordinates for each point<br>
+				<\p>
 				</DIV>
 				<h4 class="section-heading text-uppercase">Metrics</h4>
 				<p>STH here</p>
