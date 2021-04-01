@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Computer Vision in the Built Environment</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">Computer Vision in the Built Environment</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#description">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#challenge">Challenge</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#schedule">Schedule</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#dates">Important Dates</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#organizers">Organizers</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-lead-in">1st Workshop and Challenge on</div>
+          <div class="intro-heading text-uppercase"><span style="font-weight:600">Computer Vision in the Built Environment</span><br> <span style="text-transform:lowercase;font-style:italic">for the</span> Design, Construction, <span style="text-transform:lowercase;font-style:italic">and</span> Operation of Buildings</div>
+          
+          <p style="margin-top:100px;font-style:italic">Held in conjunction with the<br><a href="http://cvpr2021.thecvf.com/">IEEE Conference on Computer Vision and Pattern Recognition 2021.</a></p>
+          <img src="img/logos/cvpr2021.jpg">
+        </div>
+      </div>
+    </header>
+
+<DIV align="left">
+				<p>=============== obj File Format ===============<br>
+				The header contains following information:<br>
+					&emsp;1. number of layer (unsigned int)<br>
+					&emsp;2. number of structures for each layer (unsigned int array)<br>
+				Followed by information for layer 1:<br>
+					&emsp;1. length of layer name (unsigned int)<br>
+					&emsp;2. layer name (bytes array)<br>
+					&emsp;3. information for layer 1/structure 1:<br>
+						&emsp;&emsp;a. number of points for structure (unsigned int)<br>
+						&emsp;&emsp;b. pt1.X, pt1.Y, pt2.X, pt2.Y, ... (float in meters)<br>
+					&emsp;4. information for layer 1/structure 2:<br>
+					&emsp;...<br>
+				Followed by information for layer 2:<br>
+				...<br>
+				<br>
+				The detailed file format is provided here:<br>
+				[number of layers][number of structures for each layer]<br>
+				[length of layer 1's name][layer 1 name]<br>
+				[number of points for structure 1][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+				[number of points for structure 2][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+				...<br>
+				[length of layer 2's name][layer 2 name]<br>
+				[number of points for structure 1][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+				[number of points for structure 2][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+				...<br>
+				<br>
+				A sample obj file is given below (it should be in binary practically):<br>
+				2 32 15<br>
+				6 "A_WALL"<br>
+				2 320.12 442.55 320.12 445.55<br>
+				2 322.12 447.55 322.12 449.55<br>
+				...<br>
+				6 "A_DOOR"<br>
+				4 178.12 336.55 225.12 482.55 389.12 557.55 175.12 882.55<br>
+				2 389.12 557.55 175.12 882.55<br>
+				</p>
+				</DIV>
+				<DIV align="left">
+				<p>=============== JSON File Format ===============<br>
+				JSON file provides following information:<br>
+				1. number of layers<br>
+				2. number of structures in each layer<br>
+				3. layer details<br>
+					&emsp;- layer name<br>
+					&emsp;- number of points<br>
+					&emsp;- x y coordinates for each point<br>
+				</p>
+				</DIV>
+</body>
+</html>
