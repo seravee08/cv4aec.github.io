@@ -53,55 +53,96 @@
       </div>
     </nav>
 
+	<section id="filespecs">
 
-<DIV align="left">
-				<p>=============== obj File Format ===============<br>
-				The header contains following information:<br>
-					&emsp;1. number of layer (unsigned int)<br>
-					&emsp;2. number of structures for each layer (unsigned int array)<br>
-				Followed by information for layer 1:<br>
-					&emsp;1. length of layer name (unsigned int)<br>
-					&emsp;2. layer name (bytes array)<br>
-					&emsp;3. information for layer 1/structure 1:<br>
-						&emsp;&emsp;a. number of points for structure (unsigned int)<br>
-						&emsp;&emsp;b. pt1.X, pt1.Y, pt2.X, pt2.Y, ... (float in meters)<br>
-					&emsp;4. information for layer 1/structure 2:<br>
-					&emsp;...<br>
-				Followed by information for layer 2:<br>
-				...<br>
-				<br>
-				The detailed file format is provided here:<br>
-				[number of layers][number of structures for each layer]<br>
-				[length of layer 1's name][layer 1 name]<br>
-				[number of points for structure 1][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
-				[number of points for structure 2][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
-				...<br>
-				[length of layer 2's name][layer 2 name]<br>
-				[number of points for structure 1][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
-				[number of points for structure 2][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
-				...<br>
-				<br>
-				A sample obj file is given below (it should be in binary practically):<br>
-				2 32 15<br>
-				6 "A_WALL"<br>
-				2 320.12 442.55 320.12 445.55<br>
-				2 322.12 447.55 322.12 449.55<br>
-				...<br>
-				6 "A_DOOR"<br>
-				4 178.12 336.55 225.12 482.55 389.12 557.55 175.12 882.55<br>
-				2 389.12 557.55 175.12 882.55<br>
-				</p>
-				</DIV>
-				<DIV align="left">
-				<p>=============== JSON File Format ===============<br>
-				JSON file provides following information:<br>
-				1. number of layers<br>
-				2. number of structures in each layer<br>
-				3. layer details<br>
-					&emsp;- layer name<br>
-					&emsp;- number of points<br>
-					&emsp;- x y coordinates for each point<br>
-				</p>
-				</DIV>
+		<DIV class="container" align="left">
+			<p>
+				<style>
+					code {
+					  font-family: Consolas,"courier new";
+					  color: rgb(2, 2, 2);
+					  background-color: #f1f1f1;
+					  padding: 2px;
+					  font-size: 105%;
+					}
+				</style>
+
+				Instructions for using laspy (a Python Package) to load data: <br>
+
+				&emsp;1. Detailed instructions can be fount in <a href="url">https://laspy.readthedocs.io/en/latest/</a>; <br>
+				&emsp;2. Demo Code: <br><br>
+						
+						<code>
+							<font style="color:rgb(0, 60, 255);">from</font> laspy.file <font style="color:rgb(0, 60, 255);">import</font> File<br>
+							<font style="color:rgb(0, 60, 255);">import</font> numpy <font style="color:rgb(0, 60, 255);">as</font> np<br><br>
+							
+							inFile = File('/path/to/file.las', mode='r')<br>
+							scale_x, scale_y, scale_z = inFile.header.scale<br><br>
+							
+							<font style="color:rgb(58, 133, 68);">#load coordinates</font><br>
+							X, Y, Z = inFile.X * scale_x, inFile.Y * scale_y, inFile.Z * scale_z<br>
+							coord = np.stack([X, Y, Z], axis = -1).astype(np.float32)<br><br>
+							
+							<font style="color:rgb(58, 133, 68);">#load color</font><br>
+							R, G, B = inFile.red, inFile.green, inFile.blue<br>
+							rgb = np.stack([R, G, B], axis = -1).astype(np.float32)<br>
+						</code>
+			</p>
+
+		</DIV>
+
+
+		<DIV class="container" align="left">
+			<p>=============== obj File Format ===============<br>
+			The header contains following information:<br>
+				&emsp;1. number of layer (unsigned int)<br>
+				&emsp;2. number of structures for each layer (unsigned int array)<br>
+			Followed by information for layer 1:<br>
+				&emsp;1. length of layer name (unsigned int)<br>
+				&emsp;2. layer name (bytes array)<br>
+				&emsp;3. information for layer 1/structure 1:<br>
+					&emsp;&emsp;a. number of points for structure (unsigned int)<br>
+					&emsp;&emsp;b. pt1.X, pt1.Y, pt2.X, pt2.Y, ... (float in meters)<br>
+				&emsp;4. information for layer 1/structure 2:<br>
+				&emsp;...<br>
+			Followed by information for layer 2:<br>
+			...<br>
+			<br>
+			The detailed file format is provided here:<br>
+			[number of layers][number of structures for each layer]<br>
+			[length of layer 1's name][layer 1 name]<br>
+			[number of points for structure 1][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+			[number of points for structure 2][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+			...<br>
+			[length of layer 2's name][layer 2 name]<br>
+			[number of points for structure 1][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+			[number of points for structure 2][pt1.X][pt1.Y][pt2.X][pt2.Y]...<br>
+			...<br>
+			<br>
+			A sample obj file is given below (it should be in binary practically):<br>
+			2 32 15<br>
+			6 "A_WALL"<br>
+			2 320.12 442.55 320.12 445.55<br>
+			2 322.12 447.55 322.12 449.55<br>
+			...<br>
+			6 "A_DOOR"<br>
+			4 178.12 336.55 225.12 482.55 389.12 557.55 175.12 882.55<br>
+			2 389.12 557.55 175.12 882.55<br>
+			</p>
+		</DIV>
+
+		<DIV class="container" align="left">
+			<p>=============== JSON File Format ===============<br>
+			JSON file provides following information:<br>
+			1. number of layers<br>
+			2. number of structures in each layer<br>
+			3. layer details<br>
+				&emsp;- layer name<br>
+				&emsp;- number of points<br>
+				&emsp;- x y coordinates for each point<br>
+			</p>
+		</DIV>
+
+	</section>
 </body>
 </html>
