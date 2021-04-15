@@ -79,7 +79,7 @@
           <div class="col-lg-12 text-left">
             <p>The workshop will connect the domains of Architecture, Engineering and Construction (AEC) with that of Computer Vision by establishing a common ground of interaction and identify shared research interests. These topics will be presented from the dual lens of Computer Vision and AEC, highlighting the limitations and bottlenecks related to developing applications for this specific domain. The objective is for the two communities to come together and solve problems that are relevant in the AEC community, such as understanding the construction sites as it is changing, as well as automatically generating building models from scans of real data.</p>
 
-<p>This workshop will also host the first Scan-to-BIM challenge focused on key problems when converting 3D point cloud data obtained using lidar, photogrammetry, or depth map cameras to building information models (BIMs). BIMs, also referred to as digital twins, represent different elements of a building in a semantically rich manner, identifying objects, associated attributes, and geometrical and topological relationships. AEC firms and public agencies create BIMs to design new buildings and other structures; however, BIMs are rarely available for existing buildings or facilities. For maintenance, retrofitting, or renovation AEC entities could greatly benefit from access to BIMs of their facilities, because interpreting 2D as-built drawings is very time consuming and leads to many errors and omissions. Furthermore, asset owners could use BIMs for operations and maintenance as BIMs enable storing and having access to attributes such as maintenance history, material type, manufacturer specifications among others.</p>
+<p>This workshop will also host the first Scan-to-BIM challenge focused on key problems when converting 3D point cloud data obtained using lidar, photogrammetry, or depth map cameras to Building Information Models (BIMs). BIMs represent different elements of a building in a semantically rich manner, identifying objects, associated attributes, and geometrical and topological relationships. AEC firms and public agencies create BIMs to design new buildings and other structures; however, BIMs are rarely available for existing buildings or facilities. For maintenance, retrofitting, or renovation AEC entities could greatly benefit from access to BIMs of their facilities, because interpreting 2D as-built drawings is very time consuming and leads to many errors and omissions. Furthermore, asset owners could use BIMs for operations and maintenance as BIMs enable storing and having access to attributes such as maintenance history, material type, manufacturer specifications among others.</p>
 
 <p>However, current computer vision evaluations are mainly done on familiar evaluation metrics such as Intersection-over-Union (IoU) or classification accuracy, rather than metrics that are more relevant in practice in the AEC community, such as geometrical and topological connections between different spaces and openings. This challenge aims to bring the computer vision, civil engineering, geomatics, and construction communities together by creating new tasks and evaluation metrics that can be tackled by computer vision researchers while being of interest to and fulfilling the objectives of the AEC community. </p>
 
@@ -108,20 +108,21 @@
 			<div class="col-lg-12 text-left">
 				<h4 class="section-heading text-uppercase text-center">Dataset</h4>
 				<p>The dataset is available <a href="https://deepreality.allvision.io/">here</a>. You will need a registered
-				account to download the dataset. We have prepared 20 buildings with multiple floors each as the training set, with a total of 49 point clouds. For each model, there is a point cloud in LAZ format.
-			        For the floorplan reconstruction task, we provide 2D building models for each floor described as both a binary obj file and a JSON file with extracted layers. These layers include: walls, curved walls, doors, windows,
-				stairs, and columns. A detailed description of the file format can be found <a href="filespecs.html"> here </a>. 
-				</p>	
-				<p> We will have 6 buildings as the validation set and another 6 as the testing set. The validation set point cloud and models will be made available on a later date. The testing set models will not be made available and we will host an evaluation server to evaluate the models.
+				account to download the dataset. We have prepared 20 buildings - with multiple floors each - as the <i>training</i> set, with a total of 49 point clouds. For each model, there is a point cloud in LAZ format.</p>
+				<p><b>Floorplan Reconstruction Task:</b> We provide 2D building models for each floor described as both a binary OBJ file and a JSON file with extracted layers. These layers include: walls, curved walls, doors, windows, stairs, and columns. A detailed description of the file format can be found <a href="filespecs.html">here</a>. We will have 6 buildings as the <i>validation</i> set and another 6 as the <i>testing</i> set. The validation set, which contains point clouds and their corresponding 2D building models, will be made available on a later date. The testing set models will not be made available and we will host an evaluation server to evaluate submissions.
 <!--				<p>We provide API to extract layers from dwg and convert to obj or JSON file in this
 				<a href="https://github.com/cv4aec/cv4aec.github.io/tree/main/conversion_api">package</a>. Please find use examples
 				under main.ipynb file. The file formats for obj and JSON are detailed below.
 				</p> -->
-				<p> For the 3D Building Model Reconstruction task, more details are going to follow.</p>
+				<p><b>3D Building Model Reconstruction Task:</b> More details will follow soon.</p>
+				
+				
 				<h4 class="section-heading text-uppercase text-center">Metrics</h4>
 				<p>We will include metrics to evaluate the reconstruction of the walls, doors, floor area and windows.</p>
-				<p> For Geometric metrics, the IoU of the floor area will be measured, as well as endpoint accuracy on walls, doors and windows, orientation and length of walls, doors and windows. </p>
-				<p> We will also evaluate topological metrics that measure whether the connectivity of the rooms match the ground truth, more details will follow. </p>
+				<p><b>Geometric Metrics:</b> We will evaluate the <i>IoU</i> of the floor area, as well as the <i>endpoint accuracy</i>, <i>orientation</i>, and <i>length</i> on walls, doors, and windows. </p>
+				<p><b>Topological Metrics:</b> We will also evaluate topological metrics that measure whether the connectivity of the rooms match the ground truth. More details on this will follow soon.</p>
+				
+				
 				<h4 class="section-heading text-uppercase text-center">Evaluation and Submission</h4>
 				<p>Submission to the testing data will be available on the evaluation server.</p>
             </div>
