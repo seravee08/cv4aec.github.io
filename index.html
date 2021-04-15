@@ -98,35 +98,31 @@
           </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 text-left">
-	          	<p>The workshop will host the 1st International Scan-to-BIM challenge. The challenge will include the following tasks:</p>
-				<p><b>I. Floorplan Reconstruction</b><br>
-				   <b>II. 3D Building Model Reconstruction</b></p>
-			</div>
+            <div class="col-lg-12 text-center" style="margin-top:40px">
+	          <p>The workshop will host the 1st International Scan-to-BIM challenge. The challenge will include the following tasks:</p>
+		  <p><b>I. Floorplan Reconstruction</b><br>
+		     <b>II. 3D Building Model Reconstruction</b></p>
+	    </div>
 		</div>
-        <div class="row" style="margin-top:40px">		
-			<div class="col-lg-12 text-left">
-				<h4 class="section-heading text-uppercase text-center">Dataset</h4>
-				<p>The dataset is available <a href="https://deepreality.allvision.io/">here</a>. You will need a registered
-				account to download the dataset. We have prepared 20 buildings - with multiple floors each - as the <i>training</i> set, with a total of 49 point clouds. For each model, there is a point cloud in LAZ format.</p>
+		<div class="row">		
+			<div class="col-lg-12 text-center">
+				<h4 class="section-heading text-uppercase text-center" style="margin-top:40px">Dataset</h4>
+				<p>The dataset is available <a href="https://deepreality.allvision.io/">here</a>. You will need a registered account to download the dataset. We have prepared 20 buildings - with multiple floors each - as the <i>training</i> set, with a total of 49 point clouds. For each model, there is a point cloud in LAZ format.</p>
 				<p><b>Floorplan Reconstruction Task:</b> We provide 2D building models for each floor described as both a binary OBJ file and a JSON file with extracted layers. These layers include: walls, curved walls, doors, windows, stairs, and columns. A detailed description of the file format can be found <a href="filespecs.html">here</a>. We will have 6 buildings as the <i>validation</i> set and another 6 as the <i>testing</i> set. The validation set, which contains point clouds and their corresponding 2D building models, will be made available on a later date. The testing set models will not be made available and we will host an evaluation server to evaluate submissions.
-<!--				<p>We provide API to extract layers from dwg and convert to obj or JSON file in this
-				<a href="https://github.com/cv4aec/cv4aec.github.io/tree/main/conversion_api">package</a>. Please find use examples
-				under main.ipynb file. The file formats for obj and JSON are detailed below.
-				</p> -->
+				<!--<p>We provide API to extract layers from dwg and convert to obj or JSON file in this
+					<a href="https://github.com/cv4aec/cv4aec.github.io/tree/main/conversion_api">package</a>. Please find use examples
+					under main.ipynb file. The file formats for obj and JSON are detailed below.</p> -->
 				<p><b>3D Building Model Reconstruction Task:</b> More details will follow soon.</p>
-				
-				
-				<h4 class="section-heading text-uppercase text-center">Metrics</h4>
+
+				<h4 class="section-heading text-uppercase text-center" style="margin-top:40px">Metrics</h4>
 				<p>We will include metrics to evaluate the reconstruction of the walls, doors, floor area and windows.</p>
 				<p><b>Geometric Metrics:</b> We will evaluate the <i>IoU</i> of the floor area, as well as the <i>endpoint accuracy</i>, <i>orientation</i>, and <i>length</i> on walls, doors, and windows. </p>
 				<p><b>Topological Metrics:</b> We will also evaluate topological metrics that measure whether the connectivity of the rooms match the ground truth. More details on this will follow soon.</p>
-				
-				
-				<h4 class="section-heading text-uppercase text-center">Evaluation and Submission</h4>
+
+				<h4 class="section-heading text-uppercase text-center" style="margin-top:40px">Evaluation and Submission</h4>
 				<p>Submission to the testing data will be available on the evaluation server.</p>
+		    </div>
             </div>
-        </div>
       </div>
     </section>
 
@@ -140,7 +136,7 @@
             <p><i>Times are in PT time zone</i></p>
           </div>
         </div>
-        <div class="row">
+        <div class="row text-center">
           	<div class="col-sm-4 col-md-4 col-lg-4">
 				<p><b>TIME</b></p>	
 	  		</div>
