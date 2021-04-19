@@ -118,10 +118,17 @@
 
 				<h4 class="section-heading text-uppercase text-center" style="margin-top:50px">Metrics</h4>
 				<p>We will include metrics to evaluate the reconstruction of the walls, doors, floor area and windows.</p>
-				<p><b>Geometric Metrics:</b> We will evaluate the <i>IoU</i> of the floor area, as well as the <i>endpoint accuracy</i>, <i>orientation</i>, and <i>length</i> on walls, doors, and windows. </p>
+				<p><b>Geometric Metrics:</b> We will evaluate 1) the <i>IoU</i> of the each room (a room is defined as a completely separated area with walls and doors).<br>
+					2) Accuracy of endpoints. Precision/Recall and F-measure will be evaluated in the coordinate system of the point cloud.
+					The provided endpoints will be matched with the Hungarian algorithm to the point cloud, and every point that is within a certain threshold will be determined
+					as a match.
+					3) Orientation. For each matched line between the ground truth, we will compute the cosine similarity metric between them as the normalized dot product. If a line is not matched with 
+					ground truth, the cosine metric will be zero. Finally, the metric will be averaged over all the ground truth lines.
+					, as well as the <i>endpoint accuracy</i>, <i>orientation</i>, and <i>length</i> on walls, doors, and windows. </p>
 				<p><b>Topological Metrics:</b> We will also evaluate topological metrics that measure whether the connectivity of the rooms match the ground truth. More details on this will follow soon.</p>
 
 				<h4 class="section-heading text-uppercase text-center" style="margin-top:50px">Evaluation and Submission</h4>
+				<p> The evaluation code as well as the alignment between the point cloud and floorplans will be available for downloading shortly. </p>
 				<p>Submission of results on the testing set and evaluation on the ground truth data will be available on the evaluation server.</p>
 		    </div>
             </div>
