@@ -130,8 +130,9 @@
 						as a match.</p>
 					<p>3) Orientation. For each matched line between the ground truth, we will compute the cosine similarity metric between them as the normalized dot product. If a line is not matched with 
 					ground truth, the cosine metric will be zero. Finally, the metric will be averaged over all the ground truth lines.</p>
-					, as well as the <i>endpoint accuracy</i>, <i>orientation</i>, and <i>length</i> on walls, doors, and windows. </p>
-				<p><b>Topological Metrics:</b> We will also evaluate topological metrics that measure whether the connectivity of the rooms match the ground truth. More details on this will follow soon.</p>
+				<p><b>Topological Metrics:</b> We will also evaluate topological metrics that measure whether the connectivity of the rooms match the ground truth. The main metrics will be warping error (<a href="https://ieeexplore.ieee.org/document/5539950">Jain et al. 2010</a>) and Betti number error. 
+				The warping error will first warp the predicted floorplan to the ground truth with a homotopic deformation, and then compute the pixels that cannot match after the deformation. The Betti 
+				number error will compare the Betti numbers between the prediction and the ground truth and output the absolute value of the difference.</p>
 
 				<h4 class="section-heading text-uppercase text-center" style="margin-top:50px">Evaluation and Submission</h4>
 				<p> The evaluation code as well as the alignment between the point cloud and floorplans will be available for downloading shortly. </p>
