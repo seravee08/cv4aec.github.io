@@ -43,6 +43,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#schedule">Schedule</a>
             </li>
+	    <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#speakers">Speakers</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#dates">Important Dates</a>
             </li>
@@ -109,8 +112,8 @@
 		</div>
 		<div class="row">		
 			<div class="col-lg-12 text-center">
-				<h4 class="section-heading text-uppercase text-center" style="margin-top:50px">Dataset</h4>
-				<p>The dataset is available <a href="https://deepreality.allvision.io/">HERE</a>. You will need a registered account to download the dataset. Once you submit a request for registration, it will be inspected and a registration link will be sent to you within 24 hours. We have prepared 20 buildings - with multiple floors each - as the <i>training</i> set, with a total of 49 point clouds. For each model, there is a point cloud in LAZ format.</p>
+				<h4 class="section-heading text-uppercase text-center" style="margin-top:100px">Dataset</h4>
+				<p>The dataset is available <b><a href="https://deepreality.allvision.io/">HERE</a></b>. You will need a registered account to download the dataset. Once you submit a request for registration, it will be inspected and a registration link will be sent to you within 24 hours. We have prepared 20 buildings - with multiple floors each - as the <i>training</i> set, with a total of 49 point clouds. For each model, there is a point cloud in LAZ format.</p>
 				<p><b>Floorplan Reconstruction Task:</b> For the floorplan reconstruction task, the <i>training set</i> consists of the point clouds of 20 buildings with multiple floors each, with a total of 49 point clouds, as well as corresponding 2D building models for each floor with multiple extracted layers. These layers include: walls, curved walls, doors, windows, stairs, and columns. The buildings have complicated floor structures which could include dozens of rooms, curved walls and many doors on each floor. We will release 6 new buildings as the <i>validation set</i> and another 6 as the <i>testing set</i>. The <i>validation set</i> contains point clouds and their corresponding 2D building models, and will be made available on a later date. For the <i>testing set</i>, only the point clouds will be made available, while the 2D building models will not be made available and we will host a server to evaluate the submissions.
 
 				<!--<p><b>Floorplan Reconstruction Task:</b> We provide 2D building models for each floor described as both a binary OBJ file and a JSON file with extracted layers. These layers include: walls, curved walls, doors, windows, stairs, and columns. A detailed description of the file format can be found <a href="filespecs.html">here</a>. We will have 6 buildings as the <i>validation</i> set and another 6 as the <i>testing</i> set. The validation set, which contains point clouds and their corresponding 2D building models, will be made available on a later date. The testing set models will not be made available and we will host an evaluation server to evaluate submissions.-->
@@ -118,25 +121,24 @@
 					<a href="https://github.com/cv4aec/cv4aec.github.io/tree/main/conversion_api">package</a>. Please find use examples
 					under main.ipynb file. The file formats for obj and JSON are detailed below.</p> -->
 				<p><b>3D Building Model Reconstruction Task:</b> For the 3D building model reconstruction task, the <i>training set</i> consists of point clouds of 4 buildings with multiple floors, as well as the corresponding 3D building model in AutoCAD DXF format. We aim to release 2 more buildings for the <i>validation set</i> and 2 more as the <i>testing set</i>. The evaluation on the testing set will also be hosted on the evaluation server in a similar manner to the floorplan reconstruction task.</p>
-				<p style="margin-top:10px;font-weight:bold"><a href="https://deepreality.allvision.io/">DOWNLOAD THE DATASET HERE</a> (Note that you will get an email within 24 hours, not right away once you request for register an account.
-					Then you will need to register an account with the emailed link. After you registered, download the Scan-To-BIM training set for the floorplan reconstruction task. The 3D models are available in DXF files separately) </p>
+				<p style="margin-top:10px;font-weight:bold;font-size:15pt"><a href="https://deepreality.allvision.io/">DOWNLOAD THE DATASET HERE</a></p>
+				<p><b><i>(Note that you will get an email within 24 hours after requesting to register for an account.
+					After you receive confirmation, please use the emailed link in the confirmation email to register your account. Following this, you can download the Scan-To-BIM training set for the two tasks. The building models for the 3D reconstruction task are also available in separate files.)</i></b></p>
 				
-				<p><b> File Specifications </b> A description of the file formats and sample code to read/write these files can be found <<a href="filespecs.html">HERE</a>.
+				<p style="margin-top:10px"><b>File Specifications:</b> A description of the file formats and sample code to read/write these files can be found <b><a href="filespecs.html">HERE</a></b>.
 
-				<h4 class="section-heading text-uppercase text-center" style="margin-top:50px">Metrics</h4>
+				<h4 class="section-heading text-uppercase text-center" style="margin-top:100px">Metrics</h4>
 				<p>We will include metrics to evaluate the reconstruction of the walls, doors, floor area and windows.</p>
-				<p><b>Geometric Metrics:</b> We will evaluate 
-					<p>1) the <i>IoU</i> of the each room (a room is defined as a completely separated area with walls and doors).</p>
-					<p>2) Accuracy of endpoints. Precision/Recall and F-measure will be evaluated in the coordinate system of the point cloud.
-					The provided endpoints will be matched with the Hungarian algorithm to the point cloud, and every point that is within a certain threshold will be determined
-						as a match.</p>
-					<p>3) Orientation. For each matched line between the ground truth, we will compute the cosine similarity metric between them as the normalized dot product. If a line is not matched with 
-					ground truth, the cosine metric will be zero. Finally, the metric will be averaged over all the ground truth lines.</p>
+			<p><b>Geometric Metrics:</b> We will evaluate the:</p>
+			<ul>
+				<li><i>IoU</i> of the each room (a room is defined as a completely separated area with walls and doors).</li>
+				<li><i>Accuracy of endpoints</i>. Precision/Recall and F-measure will be evaluated in the coordinate system of the point cloud. The provided endpoints will be matched with the Hungarian algorithm to the point cloud, and every point that is within a certain threshold will be determined as a match.</li>
+				<li><i>Orientation</i>. For each matched line between the ground truth, we will compute the cosine similarity metric between them as the normalized dot product. If a line is not matched with ground truth, the cosine metric will be zero. Finally, the metric will be averaged over all the ground truth lines.</li>
 				<p><b>Topological Metrics:</b> We will also evaluate topological metrics that measure whether the connectivity of the rooms match the ground truth. The main metrics will be warping error (<a href="https://ieeexplore.ieee.org/document/5539950">Jain et al. 2010</a>) and Betti number error. 
 				The warping error will first warp the predicted floorplan to the ground truth with a homotopic deformation, and then compute the pixels that cannot match after the deformation. The Betti 
 				number error will compare the Betti numbers between the prediction and the ground truth and output the absolute value of the difference.</p>
 
-				<h4 class="section-heading text-uppercase text-center" style="margin-top:50px">Evaluation and Submission</h4>
+				<h4 class="section-heading text-uppercase text-center" style="margin-top:100px">Evaluation and Submission</h4>
 				<p> The evaluation code as well as the alignment between the point cloud and floorplans will be available for downloading shortly. </p>
 				<p>Submission of results on the testing set and evaluation on the ground truth data will be available on the evaluation server. For 2D, the submission will be
 			           in the same JSON format as in the ground truth provided to you. For 3D, the submission will be in DXF or Wavefront OBJ formats.</p>
@@ -279,8 +281,51 @@
       </div>
     </section>
 
+
+<!-- Speakers -->
+    <section id="speakers" style="background-color:#f2f1eb">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Speakers</h2>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-sm-3 col-md-3 col-lg-3">
+            	<div class="team-member">
+	              <img class="mx-auto rounded-circle" src="img/people/" alt="Frederik_Bosche">
+	              <h4><a href="https://www.eng.ed.ac.uk/about/people/dr-frederic-bosche">Frederik Bosche</a></h4>
+	              <p class="text-muted">Professor, CEE, University of Edinburgh</p>
+            	</div>
+            </div>
+	    <div class="col-sm-3 col-md-3 col-lg-3">
+	          	<div class="team-member">
+	              <img class="mx-auto rounded-circle" src="img/people/" alt="yasu_furukawa">
+	              <h4><a href="https://www.cs.sfu.ca/~furukawa/">Yasutaka Furukawa</a></h4>
+	              <p class="text-muted">Professor, CS, Simon Fraser University</p>
+	            </div>
+	    </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+	          	<div class="team-member">
+	              <img class="mx-auto rounded-circle" src="img/people/" alt="Derek_Hoiem">
+	              <h4><a href="https://dhoiem.cs.illinois.edu/">Derek Hoiem</a></h4>
+	              <p class="text-muted">Professor, CS, University of Illinois at Urbana-Champaign</p>
+	            </div>
+            </div>
+           
+	        <div class="col-sm-3 col-md-3 col-lg-3">
+	            <div class="team-member">
+	              <img class="mx-auto rounded-circle" src="img/people/" alt="">
+	              <h4><a href=""></a></h4>
+	              <p class="text-muted"></p>
+	            </div>
+            </div>
+        </div>
+    </section>
+	      
+	      
 	<!-- dates -->
-    <section style="background-color:#f2f1eb" id="dates">
+    <section id="dates">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -303,7 +348,7 @@
       </div>
     </section>
 
-<!-- dates -->
+<!-- registration -->
     <section id="registration">
       <div class="container">
         <div class="row">
